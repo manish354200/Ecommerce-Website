@@ -1,32 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Tracking</title>
-
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Load a font called Roboto from Google Fonts. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Here are the CSS files for this page. -->
-    <link rel="stylesheet" href="styles/shared/general.css">
-    <link rel="stylesheet" href="styles/shared/header.css">
-    <link rel="stylesheet" href="styles/pages/tracking.css">
-  </head>
-  <body>
-    <div class="header">
+import { Link } from 'react-router';
+import { Header } from '../components/Header';
+import './TrackingPage.css'
+export function TrackingPage(){
+  return ( 
+  <>
+     <title>Tracking</title>
+     <Header />
+     <div class="header">
       <div class="left-section">
-        <a href="/" class="header-link">
+        <Link href="tracking" class="header-link">
           <img class="logo"
             src="images/logo-white.png" />
           <img class="mobile-logo"
             src="images/mobile-logo-white.png" />
-        </a>
+        </Link>
       </div>
 
       <div class="middle-section">
@@ -38,24 +25,24 @@
       </div>
 
       <div class="right-section">
-        <a class="orders-link header-link" href="/orders">
+        <Link class="orders-link header-link" href="/orders">
 
           <span class="orders-text">Orders</span>
-        </a>
+        </Link>
 
-        <a class="cart-link header-link" href="/checkout">
+        <Link class="cart-link header-link" href="/checkout">
           <img class="cart-icon" src="images/icons/cart-icon.png" />
           <div class="cart-quantity">3</div>
           <div class="cart-text">Cart</div>
-        </a>
+        </Link>
       </div>
     </div>
 
     <div class="tracking-page">
       <div class="order-tracking">
-        <a class="back-to-orders-link link-primary" href="/orders">
+        <Link class="back-to-orders-link link-primary" href="/orders">
           View all orders
-        </a>
+        </Link>
 
         <div class="delivery-date">
           Arriving on Monday, June 13
@@ -88,5 +75,6 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+  </>
+  )
+}
