@@ -8,7 +8,6 @@ export function CheckoutPage() {
        <>
        <link rel="icon" type="image/svg+xml" href="/images/cart-favicon.png" />
        <CheckoutHeader />
-       <Header />
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
 

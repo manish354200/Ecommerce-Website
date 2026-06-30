@@ -4,9 +4,8 @@ import { Header } from '../components/Header'
 import CheckmarkIcon from '../assets/images/icons/checkmark.png'
 import './HomePage.css';
 
-export function HomePage() {
+export function HomePage( {cart} ) {
   const [products, setProducts] = useState([]);
-  const [cart,setCart] = useState([]);
 
   useEffect(() => {
      axios.get('/api/products')
@@ -14,10 +13,6 @@ export function HomePage() {
          setProducts(response.data) 
     })
 
-  axios.get('/api/cart-items')
-     .then((response) => {
-      setCart(response.data); 
-     })
   }, [])
  
 
@@ -25,7 +20,7 @@ export function HomePage() {
     <>
       <title>Ecommerce Project</title>
       <link rel="icon" type="image/svg+xml" href="images/home-favicon.png" />
-      <Header cart = {cart}/>
+      <Header cart={cart}/>
 
       <div className="home-page">
         <div className="products-grid">
