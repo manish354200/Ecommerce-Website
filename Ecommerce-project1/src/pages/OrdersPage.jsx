@@ -11,11 +11,14 @@ export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/orders?expand=products')
-      .then((response) => {
+    const fetchOrders = async ()=>{ 
+    const response = await axios.get('/api/orders?expand=products')
         setOrders(response.data)
-      })
-  }, [])
+    }
+     fetchOrders()
+      }, [])
+    
+      
   return (
     <>
       <title>Orders</title>
@@ -59,7 +62,7 @@ export function OrdersPage({ cart }) {
                       {orderProduct.product.name}
                     </div>
                     <div className="product-delivery-date">
-                      Arriving on: {dayjs(orderProduct.product.estimatedDeliveryTimeMs).format('MMMM D')}
+                      Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')}
                     </div>
                     <div className="product-quantity">
                       Quantity: {orderProduct.product.quantity}
@@ -71,7 +74,7 @@ export function OrdersPage({ cart }) {
                   </div>
 
                   <div className="product-actions">
-                    <Link to="/tracking">
+                    <Link to ={`/tracking/${order.id}/${orderProduct.productId}`}>
                       <button className="track-package-button button-secondary">
                         Track package
                       </button>
