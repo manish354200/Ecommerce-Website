@@ -5,8 +5,10 @@ import { CheckoutPage } from './Checkout/CheckoutPage'
 import { OrdersPage } from './pages/OrdersPage'
 import { TrackingPage } from './pages/TrackingPage'
 import { NotFoundPage } from './pages/NotFound'
+import { Header } from './components/Header'
 import './App.css'
 import { useEffect, useState } from 'react'
+window.axios = axios;
 
 function App() {
   const [cart,setCart] = useState([]);
@@ -17,15 +19,14 @@ function App() {
   useEffect(()=>{
     loadCart();
   },[]);
-  return (
+  return ( 
     <Routes>
       <Route path="/" element ={<HomePage cart={cart} loadCart={loadCart}/>} />
       <Route path="checkout" element={ <CheckoutPage cart={cart} loadCart={loadCart} /> } />
-      <Route path="orders" element={<OrdersPage cart={cart}/>}/>
+      <Route path="orders" element={<OrdersPage cart={cart} loadCart={loadCart}/>}/>
       <Route path="tracking/:orderId/:productId" element={<TrackingPage />}/>
       <Route path="*" element={<NotFoundPage/>}/>
     </Routes>
-    
   )
 }
 

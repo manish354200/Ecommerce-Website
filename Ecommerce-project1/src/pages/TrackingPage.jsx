@@ -2,12 +2,8 @@ import axios from 'axios'
 import { Link, useParams} from 'react-router';
 import { useEffect,useState } from 'react';
 import dayjs from 'dayjs';
-// import { Header } from '../components/Header';
-import LogoWhite from '../assets/logo-white.png'
-import SearchIcon from '../assets/images/icons/search-icon.png'
-import CartIcon from '../assets/images/icons/cart-icon.png'
+// import MobileLogo from '../assets/mobile-logo-white.png'
 import './TrackingPage.css'
-
 
 export function TrackingPage() {
   const {orderId, productId} = useParams();
@@ -61,38 +57,7 @@ export function TrackingPage() {
     <>
       <title>Tracking</title>
       <link rel="icon" type="image/svg+xml" href="/images/tracking-favicon.png" />
-      <div className="header">
-        <div className="left-section">
-          <Link to="/tracking" className="header-link">
-            <img className="logo"
-              src={LogoWhite} />
-            {/* <img
-            src={MobileLogo} /> */}
-          </Link>
-        </div>
-
-        <div className="middle-section">
-          <input className="search-bar" type="text" placeholder="Search" />
-
-          <button className="search-button">
-            <img className="search-icon" src={SearchIcon} />
-          </button>
-        </div>
-
-        <div className="right-section">
-          <Link className="orders-link header-link" to="/orders">
-
-            <span className="orders-text">Orders</span>
-          </Link>
-
-          <Link className="cart-link header-link" to="/checkout">
-            <img className="cart-icon" src={CartIcon} />
-            <div className="cart-quantity">3</div>
-            <div className="cart-text">Cart</div>
-          </Link>
-        </div>
-      </div>
-
+      
       <div className="tracking-page">
         <div className="order-tracking">
           <Link className="back-to-orders-link link-primary" to="/orders">
